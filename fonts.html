@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>标题字体预览</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body { padding: 16px 12px 40px; }
+    h2 { font-size: 18px; margin: 4px 4px 4px; }
+    .tip { color: var(--muted); font-size: 13px; margin: 0 4px 14px; }
+    .opt { border-radius: 14px; overflow: hidden; margin-bottom: 14px; box-shadow: 0 2px 8px rgba(0,0,0,.08); background: #fff; }
+    .opt .brand { padding: 22px 12px 18px; }
+    .opt .meta { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; font-size: 13px; }
+    .opt .meta a { color: var(--red); font-weight: 600; }
+    .opt .meta b { font-size: 15px; }
+  </style>
+</head>
+<body>
+  <h2>标题艺术字体 · 5 选 1</h2>
+  <p class="tip">点「看整站效果」可以带着该字体进入点餐页，还能对比两种购物车样式。</p>
+  <div id="list"></div>
+  <script>
+    const fonts = [
+      ['kuaile', '① 站酷快乐体', '圆润可爱、活泼亲切'],
+      ['mashanzheng', '② 马善政毛笔楷书', '毛笔书法、传统中餐馆'],
+      ['zhimangxing', '③ 志漫行', '行草手写、烟火气'],
+      ['huangyou', '④ 站酷庆科黄油体', '粗壮醒目、偏现代'],
+      ['longcang', '⑤ 龙藏体', '手写钢笔、文艺'],
+    ];
+    document.getElementById('list').innerHTML = fonts.map(([k, n, d]) => `
+      <div class="opt" style="--brand-font:'${k}'">
+        <header class="brand"><h1 class="brand-name">家家点餐咯</h1><p class="brand-slogan">吃好喝好每天都好~</p></header>
+        <div class="meta"><div><b>${n}</b><div class="muted">${d}</div></div>
+          <div style="text-align:right"><a href="index.html?font=${k}&cart=float">看整站效果（悬浮按钮）</a><br>
+          <a href="index.html?font=${k}&cart=bar">看整站效果（底部结算栏）</a></div></div>
+      </div>`).join('');
+  </script>
+</body>
+</html>
