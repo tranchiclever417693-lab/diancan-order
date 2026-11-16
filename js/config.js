@@ -11,6 +11,8 @@ window.APP_CONFIG = {
   // 标题字体：kuaile | mashanzheng | zhimangxing | huangyou | longcang
   // 可用网址参数 ?font=xxx 临时预览
   BRAND_FONT: 'kuaile',
+  // 标题背景：0=原版红色渐变 1-7=候选样式，可用 ?bg=3 临时预览
+  BRAND_BG: '0',
   // 购物车样式：float（右下角两个悬浮按钮）| bar（底部结算栏）
   // 可用网址参数 ?cart=bar 临时预览
   CART_STYLE: 'float',

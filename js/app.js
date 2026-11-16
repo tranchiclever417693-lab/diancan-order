@@ -10,6 +10,7 @@
   const cartStyle = ['float', 'bar'].includes(params.get('cart')) ? params.get('cart') : cfg.CART_STYLE;
   document.documentElement.dataset.font = font;
   document.documentElement.dataset.cart = cartStyle;
+  const brandBg = /^[0-7]$/.test(params.get('bg') || '') ? params.get('bg') : String(cfg.BRAND_BG || '0');
 
   const S = { dishes: [], cat: 'all', cart: loadCart(), cartOpen: false };
 
@@ -155,7 +156,7 @@
     const cats = window.CATEGORIES;
     const list = S.dishes.filter(d => inCat(d, S.cat));
     $app.innerHTML = `
-      <header class="brand">
+      <header class="brand bg-${brandBg}">
         <h1 class="brand-name">家家点餐咯</h1>
         <p class="brand-slogan">吃好喝好每天都好~</p>
         ${api.mode === 'local' ? '<span class="mode-tag">演示模式</span>' : ''}

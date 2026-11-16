@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN" data-font="kuaile">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>标题背景预览</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body { padding: 16px 12px 40px; }
+    h2 { font-size: 18px; margin: 4px; }
+    .tip { color: var(--muted); font-size: 13px; margin: 0 4px 14px; }
+    .opt { border-radius: 14px; overflow: hidden; margin-bottom: 14px; box-shadow: 0 2px 8px rgba(0,0,0,.08); background: #fff; }
+    .opt .meta { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 14px; font-size: 13px; }
+    .opt .meta a { color: var(--red); font-weight: 600; white-space: nowrap; }
+    .opt .meta b { font-size: 15px; }
+  </style>
+</head>
+<body>
+  <h2>标题背景 · 选一个（字体：站酷快乐体）</h2>
+  <p class="tip">点「看整站效果」进入点餐页查看搭配效果。</p>
+  <div id="list"></div>
+  <script>
+    const bgs = [
+      [0, '⓪ 原版', '红色渐变 + 圆形光斑'],
+      [1, '① 宣纸红印', '暖白底、红字、底部回纹，干净雅致'],
+      [2, '② 中国红祥云', '深红底、祥云暗纹、金字，喜庆'],
+      [3, '③ 水墨远山', '米白底、淡墨山影、红色印章，文艺'],
+      [4, '④ 灯笼夜市', '夜色底、两侧红灯笼、暖黄字，烟火气'],
+      [5, '⑤ 暖阳橙', '橙黄渐变、白字，活泼有食欲'],
+      [6, '⑥ 美食图案', '奶油底、淡淡饺子面条碗筷图案'],
+      [7, '⑦ 格子桌布', '红白格桌布 + 白色招牌，家常小馆'],
+    ];
+    document.getElementById('list').innerHTML = bgs.map(([k, n, d]) => `
+      <div class="opt">
+        <header class="brand bg-${k}"><h1 class="brand-name">家家点餐咯</h1><p class="brand-slogan">吃好喝好每天都好~</p></header>
+        <div class="meta"><div><b>${n}</b><div class="muted">${d}</div></div>
+          <a href="index.html?bg=${k}">看整站效果 ›</a></div>
+      </div>`).join('');
+  </script>
+</body>
+</html>
